@@ -1,9 +1,12 @@
-from face_detection import detect_face, process_image, get_face
+from utils import save_image, draw_save_detection
+from face_detection import detection_pipeline
 
-img_path = "tests/pictures/picture.jpeg"
-detection_output_path = "tests/pictures/detection.jpeg"
-face_output_path = "tests/pictures/face.jpeg"
+dir = "tests/pictures"
+img_path = f"{dir}/picture.jpeg"
+detection_output_path = f"{dir}/detection.jpeg"
+face_output_path = f"{dir}/face.jpeg"
 
-box = detect_face(img_path)
-process_image(img_path, detection_output_path, box)
-get_face(img_path, face_output_path, box)
+box, face = detection_pipeline(img_path)
+
+draw_save_detection(img_path, detection_output_path, box)
+save_image(face, face_output_path)

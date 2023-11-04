@@ -1,4 +1,5 @@
 ultralytics==8.0.0
 facenet-pytorch
 pinecone-client
+uvicorn
 -e .
